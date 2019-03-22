@@ -79,42 +79,58 @@ y = kms.fit_predict(x)                                #计算聚类中心并预�
 
 
 '''绘制雷达图'''
-def drow():
-    plt.figure(figsize=(10,6))
-    plt.rcParams['font.sans-serif'] = ['KaiTi']
-    # plt.style.use('ggplot')                          #ggplot样式
-    tu  = plt.subplot(321,polar=True)
-    tu1 = plt.subplot(322,polar=True)
-    tu2 = plt.subplot(323,polar=True)
-    tu3 = plt.subplot(324,polar=True)
-    tu4 = plt.subplot(325,polar=True)
-    labels = np.array(['会员入会月份','LAST_TO_END','FLIGHT_COUNT','SEG_KM_SUM','avg_discount'])    #设置标签
-    theta = np.linspace(0,2*np.pi,5,endpoint=False)  #生成角度值，从0开始到2π,生成5份，终端点为False
-    theta = np.concatenate((theta,[theta[0]]))       #闭合:加上之后首尾相接，保持第一个值和最后一个值一样
-    data = [x["会员入会月份"][y==0],x["LAST_TO_END"][y==0],x["FLIGHT_COUNT"][y==0],x["SEG_KM_SUM"][y==0],x["avg_discount"][y==0]]               #
-    data1 = [x["会员入会月份"][y==1],x["LAST_TO_END"][y==1],x["FLIGHT_COUNT"][y==1],x["SEG_KM_SUM"][y==1],x["avg_discount"][y==1]]               #
-    data2 = [x["会员入会月份"][y==2],x["LAST_TO_END"][y==2],x["FLIGHT_COUNT"][y==2],x["SEG_KM_SUM"][y==2],x["avg_discount"][y==2]]               #
-    data3 = [x["会员入会月份"][y==3],x["LAST_TO_END"][y==3],x["FLIGHT_COUNT"][y==3],x["SEG_KM_SUM"][y==3],x["avg_discount"][y==3]]               #
-    data4 = [x["会员入会月份"][y==4],x["LAST_TO_END"][y==4],x["FLIGHT_COUNT"][y==4],x["SEG_KM_SUM"][y==4],x["avg_discount"][y==4]]               #
-    data  = np.concatenate((data, [data[0]]))          #闭合:保持第一个值和最后一个值相等
-    data1 = np.concatenate((data1,[data1[0]]))
-    data2 = np.concatenate((data2,[data2[0]]))
-    data3 = np.concatenate((data3,[data3[0]]))
-    data4 = np.concatenate((data4,[data4[0]]))
-    tu .plot(theta,data, marker =(5,1))
-    tu1.plot(theta,data1,marker = 'x')
-    tu2.plot(theta,data2,marker ="o")
-    tu3.plot(theta,data3,marker ="o")
-    tu4.plot(theta,data4,marker ="o")
-    tu.set_xticklabels(labels)
-    tu1.set_xticklabels(labels)
-    tu2.set_xticklabels(labels)
-    tu3.set_xticklabels(labels)
-    tu4.set_xticklabels(labels)
-    tu.set_xticklabels(labels)
+# def drow():
+#     plt.figure(figsize=(10,6))
+#     plt.rcParams['font.sans-serif'] = ['KaiTi']
+#     # plt.style.use('ggplot')                          #ggplot样式
+#     tu  = plt.subplot(321,polar=True)
+#     tu1 = plt.subplot(322,polar=True)
+#     tu2 = plt.subplot(323,polar=True)
+#     tu3 = plt.subplot(324,polar=True)
+#     tu4 = plt.subplot(325,polar=True)
+#     labels = np.array(['会员入会月份','LAST_TO_END','FLIGHT_COUNT','SEG_KM_SUM','avg_discount'])    #设置标签
+#     theta = np.linspace(0,2*np.pi,5,endpoint=False)  #生成角度值，从0开始到2π,生成5份，终端点为False
+#     theta = np.concatenate((theta,[theta[0]]))       #闭合:加上之后首尾相接，保持第一个值和最后一个值一样
+#     data = [x["会员入会月份"][y==0],x["LAST_TO_END"][y==0],x["FLIGHT_COUNT"][y==0],x["SEG_KM_SUM"][y==0],x["avg_discount"][y==0]]               #
+#     data1 = [x["会员入会月份"][y==1],x["LAST_TO_END"][y==1],x["FLIGHT_COUNT"][y==1],x["SEG_KM_SUM"][y==1],x["avg_discount"][y==1]]               #
+#     data2 = [x["会员入会月份"][y==2],x["LAST_TO_END"][y==2],x["FLIGHT_COUNT"][y==2],x["SEG_KM_SUM"][y==2],x["avg_discount"][y==2]]               #
+#     data3 = [x["会员入会月份"][y==3],x["LAST_TO_END"][y==3],x["FLIGHT_COUNT"][y==3],x["SEG_KM_SUM"][y==3],x["avg_discount"][y==3]]               #
+#     data4 = [x["会员入会月份"][y==4],x["LAST_TO_END"][y==4],x["FLIGHT_COUNT"][y==4],x["SEG_KM_SUM"][y==4],x["avg_discount"][y==4]]               #
+#     data  = np.concatenate((data, [data[0]]))          #闭合:保持第一个值和最后一个值相等
+#     data1 = np.concatenate((data1,[data1[0]]))
+#     data2 = np.concatenate((data2,[data2[0]]))
+#     data3 = np.concatenate((data3,[data3[0]]))
+#     data4 = np.concatenate((data4,[data4[0]]))
+#     tu .plot(theta,data, marker =(5,1))
+#     tu1.plot(theta,data1,marker = 'x')
+#     tu2.plot(theta,data2,marker ="o")
+#     tu3.plot(theta,data3,marker ="o")
+#     tu4.plot(theta,data4,marker ="o")
+#     tu.set_xticklabels(labels)
+#     tu1.set_xticklabels(labels)
+#     tu2.set_xticklabels(labels)
+#     tu3.set_xticklabels(labels)
+#     tu4.set_xticklabels(labels)
+#     tu.set_xticklabels(labels)
 
-    plt.xticks(theta,labels)
-    plt.title("卒")
-    plt.show()
+#     plt.xticks(theta,labels)
+#     plt.title("卒")
+#     plt.show()
 
-drow()
+# drow()
+
+#5合一版
+plt.figure(figsize=(10,6))
+plt.rcParams['font.sans-serif'] = ['KaiTi']
+tu  = plt.subplot(111,polar=True)
+datalenth=5
+angle = np.linspace(0,2*np.pi,datalenth)
+# angle = np.concatenate((angle,[angle[0]]))
+data = kms.cluster_centers_         #聚类中心
+# labels = ['1','2','3','4','5']
+np.concatenate((data,[data[0]]))
+plt.polar(angle,data,marker=(5,1),linestyle=':')
+plt.title('聚类中心')
+labels1 = np.array(['会员入会月份','LAST_TO_END','FLIGHT_COUNT','SEG_KM_SUM','avg_discount'])    #设置标签
+tu.set_xticklabels(labels1)
+plt.show()
