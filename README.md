@@ -22,3 +22,6 @@ csdn博客地址https://blog.csdn.net/weixin_43582101/article/details/88734153
 
 5合1版：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190322111526851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU4MjEwMQ==,size_16,color_FFFFFF,t_70)
+
+本案例定义了5个等级的客户类别：重要保持客户、重要发展客户、重要挽留客户、一般客户和低价值客户
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190322114424507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU4MjEwMQ==,size_16,color_FFFFFF,t_70)
